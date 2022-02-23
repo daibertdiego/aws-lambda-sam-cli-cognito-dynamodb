@@ -1,0 +1,50 @@
+{
+  "TableName": "User",
+  "KeySchema": [
+    {
+      "KeyType": "HASH",
+      "AttributeName": "id"
+    },
+    {
+      "KeyType": "RANGE",
+      "AttributeName": "email"
+    }
+  ],
+  "AttributeDefinitions": [
+    {
+      "AttributeName": "age",
+      "AttributeType": "N"
+    },
+    {
+      "AttributeName": "email",
+      "AttributeType": "S"
+    },
+    {
+      "AttributeName": "id",
+      "AttributeType": "S"
+    },
+    {
+      "AttributeName": "name",
+      "AttributeType": "S"
+    }
+  ],
+  "BillingMode": "PAY_PER_REQUEST",
+  "GlobalSecondaryIndexes": [
+    {
+      "IndexName": "gsi_0",
+      "Projection": {
+        "ProjectionType": "ALL"
+      },
+      "KeySchema": [
+        {
+          "AttributeName": "name",
+          "KeyType": "HASH"
+        },
+        {
+          "AttributeName": "age",
+          "KeyType": "RANGE"
+        }
+      ]
+    }
+  ]
+}
